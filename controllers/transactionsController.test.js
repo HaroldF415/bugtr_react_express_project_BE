@@ -4,10 +4,10 @@ const app = require("../app");
 let transactionsData = require("../models/transactions");
 
 describe("transactions", () => {
-  let orignalTransactionsData = transactionsData;
+  let orignalTransactionsData;
 
   beforeEach(() => {
-    transactionsData = orignalTransactionsData;
+    orignalTransactionsData = [...transactionsData];
   });
 
   describe("/transactions", () => {
