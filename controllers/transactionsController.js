@@ -21,10 +21,16 @@ const transactionIndexHandler = (req, res) => {
 // POST: ROUTE HANDLER
 const createTransactionHandler = (req, res) => {
   const transaction = req.body;
+  const transactionID = transaction.id;
+
+  const transactionExists = transactionData.some((transaction) => transactionID === transaction.id);
+
+  if (transactionExists) {
+    return res.status(400).send("Transaction already exists");
+  }
 
   transactionData.push(transaction);
-  // res.status(200).send(transaction);
-  res.status(200).send(transactionData[transactionData.length - 1]);
+  res.status(200).send(transaction);
 };
 
 // PUT: ROUTE HANDLERS
