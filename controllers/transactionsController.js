@@ -14,7 +14,7 @@ const transactionIndexHandler = (req, res) => {
   if (transactionData[index]) {
     res.status(200).send(transactionData[index]);
   } else {
-    res.status(404).send("/error");
+    res.status(404).send("Transaction not found");
   }
 };
 
@@ -52,3 +52,21 @@ const deleteTransactionHandler = (req, res) => {
   transactionData.splice(index, 1);
   res.status(200).send(transactionData);
 };
+
+// ROUTES
+
+// GET: ROUTES
+transactions.get("/", homePageHandler);
+transactions.get("/:index", transactionIndexHandler);
+
+// POST: ROUTE
+transactions.post("/", createTransactionHandler);
+
+// PUT: ROUTE
+transactions.put("/:index", updateTransactionHandler);
+
+// DELETE: ROUTE
+transactions.delete("/:index", deleteTransactionHandler);
+
+// EXPORTS
+module.exports = transactions;
