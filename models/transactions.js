@@ -2,7 +2,7 @@ module.exports = [
   {
     id: "6b768a6d-52d8-42e2-91d1-079b03d8e697",
     item_name: "income",
-    amount: 420,
+    amount: 1420,
     date: "2023-04-20",
     from: "employer",
     category: "salary",
