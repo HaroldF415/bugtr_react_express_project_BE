@@ -30,7 +30,6 @@ const createTransactionHandler = (req, res) => {
   }
 
   transactionData.push(transaction);
-  console.log(transactionData.length);
   res.status(200).json(transactionData[transactionData.length - 1]);
 };
 
