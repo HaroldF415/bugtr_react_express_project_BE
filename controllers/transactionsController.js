@@ -5,7 +5,7 @@ const transactions = express.Router();
 
 // GET: ROUTE HANDLERS
 const homePageHandler = (req, res) => {
-  res.status(200).send(transactionData);
+  res.status(200).json(transactionData);
 };
 
 const transactionIndexHandler = (req, res) => {
@@ -30,7 +30,8 @@ const createTransactionHandler = (req, res) => {
   }
 
   transactionData.push(transaction);
-  res.status(200).send(transaction);
+  console.log(transactionData.length);
+  res.status(200).json(transactionData[transactionData.length - 1]);
 };
 
 // PUT: ROUTE HANDLERS
